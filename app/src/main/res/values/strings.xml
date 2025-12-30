@@ -1,5 +1,112 @@
 <resources>
     <string name="app_name">dog_prank</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- ===== SCREEN ===== -->
+    <string name="dog_translator">Dog Translator</string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+
+    <!-- ===== COMMON ===== -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="hi">Hi</string>
+    <string name="hello">Hello</string>
+    <string name="wow">Wow</string>
+
+    <!-- ===== DOG – BASIC ===== -->
+    <string name="curious">Curious</string>
+    <string name="lets_play">Let’s Play</string>
+    <string name="angry">Angry</string>
+    <string name="friendly">Friendly</string>
+    <string name="happy">Happy</string>
+    <string name="cry">Cry</string>
+
+    <!-- ===== DOG – ACTION ===== -->
+    <string name="agree">Agree</string>
+    <string name="begging">Begging</string>
+    <string name="dance">Dance</string>
+    <string name="hand_clap">Hand Clap</string>
+    <string name="raise_hand">Raise Hand</string>
+    <string name="pet">Pet</string>
+
+    <!-- ===== DOG – EMOTION ===== -->
+    <string name="happy_cry">Happy Cry</string>
+    <string name="sad">Sad</string>
+    <string name="soft_angry">Soft Angry</string>
+    <string name="super_angry">Super Angry</string>
+    <string name="shy">Shy</string>
+    <string name="wonder">Wonder</string>
+
+    <!-- ===== DOG – GREETING ===== -->
+    <string name="hi_fence">Hi (Fence)</string>
+    <string name="yeah">Yeah</string>
+
+    <!-- ===== DOG – LOVE ===== -->
+    <string name="love">Love</string>
+    <string name="adoring_chatter">Adoring</string>
+    <string name="affectionate_barking">Affectionate Bark</string>
+    <string name="affectionate_howl">Affectionate Howl</string>
+    <string name="affectionate_lick">Affectionate Lick</string>
+    <string name="affectionate_nuzzle">Affectionate Nuzzle</string>
+
+    <!-- ===== DOG – PLAYFUL ===== -->
+    <string name="playful_bleat">Playful</string>
+    <string name="playful_chirping">Playful Chirp</string>
+    <string name="playful_squeak">Playful Squeak</string>
+    <string name="playful_yip">Playful Yip</string>
+
+    <!-- ===== DOG – EXCITED ===== -->
+    <string name="excited_woof">Excited Woof</string>
+    <string name="ecstatic_barking">Ecstatic Bark</string>
+    <string name="ecstatic_peep">Ecstatic Peep</string>
+    <string name="thrilled">Thrilled</string>
+
+    <!-- ===== DOG – RELAX ===== -->
+    <string name="relaxed">Relaxed</string>
+    <string name="sleepy">Sleepy</string>
+    <string name="exhausted">Exhausted</string>
+
+    <!-- ===== DOG – NEED ===== -->
+    <string name="thirsty">Thirsty</string>
+    <string name="hungry">Hungry</string>
+    <string name="alert">Alert</string>
+
+    <!-- ================================================== -->
+    <!-- ===================== CAT ======================== -->
+    <!-- ================================================== -->
+
+    <!-- ===== CAT – BASIC ===== -->
+    <string name="i_love_you">I Love You</string>
+    <string name="come_here">Come Here</string>
+    <string name="fine">Fine</string>
+
+    <!-- ===== CAT – EMOTION ===== -->
+    <string name="tired">Tired</string>
+    <string name="sleep">Sleep</string>
+    <string name="anxious">Anxious</string>
+    <string name="pain">Pain</string>
+
+    <!-- ===== CAT – FIGHT / HISS ===== -->
+    <string name="fighting">Fighting</string>
+    <string name="fight_hiss">Fight Hiss</string>
+    <string name="defensive_hiss">Defensive Hiss</string>
+    <string name="bossy_hiss">Bossy Hiss</string>
+
+    <!-- ===== CAT – PURR ===== -->
+    <string name="deep_purr">Deep Purr</string>
+    <string name="soft_purr">Soft Purr</string>
+    <string name="low_purr">Low Purr</string>
+
+    <!-- ===== CAT – MEOW ===== -->
+    <string name="bass_meow">Bass Meow</string>
+    <string name="grating_meow">Grating Meow</string>
+    <string name="shrill_meow">Shrill Meow</string>
+    <string name="soft_chirp">Soft Chirp</string>
+    <string name="sweet_meow">Sweet Meow</string>
+
+    <!-- ===== CAT – OTHER ===== -->
+    <string name="whiny">Whiny</string>
+    <string name="short_yowl">Short Yowl</string>
+    <string name="weak_meow">Weak Meow</string>
+
 </resources>

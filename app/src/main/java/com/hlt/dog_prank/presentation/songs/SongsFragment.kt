@@ -1,28 +1,36 @@
 package com.hlt.dog_prank.presentation.songs
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.hlt.dog_prank.R
+import com.hlt.dog_prank.data.local.SongData
 import com.hlt.dog_prank.databinding.FragmentSongsBinding
 import com.hlt.dog_prank.presentation.BaseFragment
 
 class SongsFragment : BaseFragment<FragmentSongsBinding>() {
 
-    override fun inflateBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentSongsBinding {
+    private lateinit var adapter: SongsAdapter
+
+    override fun inflateBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentSongsBinding {
         return FragmentSongsBinding.inflate(inflater, container, false)
     }
 
     override fun setupViews() {
-        // setup UI danh sách bài hát
-        // ví dụ:
-        // binding.recyclerViewSongs.adapter = songsAdapter
+        adapter = SongsAdapter { index ->
+            val bundle = Bundle().apply { putInt("songIndex", index) }
+            findNavController().navigate(R.id.playSongFragment, bundle)
+        }
+
+        binding.rvSongs.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvSongs.adapter = adapter
+
+        adapter.submitList(SongData.list)
     }
 
-    override fun observeData() {
-        // observe ViewModel nếu có
-    }
+    override fun observeData() {}
 
     companion object {
         fun newInstance() = SongsFragment()

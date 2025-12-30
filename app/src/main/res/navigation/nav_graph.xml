@@ -8,4 +8,33 @@
         android:id="@+id/homeFragment"
         android:name="com.hlt.dog_prank.presentation.home.HomeFragment"
         android:label="Home" />
+
+    <fragment
+        android:id="@+id/playSoundsFragment"
+        android:name="com.hlt.dog_prank.presentation.sounds.PlaySoundsFragment"
+        android:label="PlaySound">
+
+        <argument
+            android:name="iconRes"
+            app:argType="integer" />
+
+        <argument
+            android:name="titleRes"
+            app:argType="integer" />
+
+        <argument
+            android:name="soundRes"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/playSongFragment"
+        android:name="com.hlt.dog_prank.presentation.songs.PlaySongFragment"
+        android:label="PlaySong">
+        <argument
+            android:name="songIndex"
+            app:argType="integer" />
+    </fragment>
+
+
+
 </navigation>

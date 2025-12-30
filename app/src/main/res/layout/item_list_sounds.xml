@@ -9,6 +9,9 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/ic_cat_angry"
         app:shapeAppearanceOverlay="@style/RoundedImage16" />
     <TextView

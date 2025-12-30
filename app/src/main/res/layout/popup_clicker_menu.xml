@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="start"
+    android:background="@drawable/bg_popup_clicker">
+
+    <TextView
+        android:id="@+id/item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:text="Sound 1"/>
+    <View
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/bottom_nav_unselected"/>
+
+    <TextView
+        android:id="@+id/item2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:text="Sound 2"/>
+    <View
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/bottom_nav_unselected"/>
+    <TextView
+        android:id="@+id/item3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:text="Sound 3"/>
+
+</LinearLayout>
