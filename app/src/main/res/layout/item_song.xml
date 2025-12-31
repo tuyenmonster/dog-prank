@@ -12,7 +12,7 @@
         android:id="@+id/icMusic"
         android:layout_width="@dimen/_34sdp"
         android:layout_height="@dimen/_34sdp"
-        android:src="@drawable/ic_play"
+        android:src="@drawable/ic_item_song"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -36,7 +36,7 @@
         android:id="@+id/icStar"
         android:layout_width="@dimen/_22sdp"
         android:layout_height="@dimen/_22sdp"
-        android:src="@drawable/ic_1_star"
+        android:src="@drawable/ic_fav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

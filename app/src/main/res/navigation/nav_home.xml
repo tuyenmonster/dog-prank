@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/soundsFragment">
+
+    <fragment
+        android:id="@+id/soundsFragment"
+        android:name="com.hlt.dog_prank.presentation.sounds.SoundsFragment" />
+
+    <fragment
+        android:id="@+id/translateFragment"
+        android:name="com.hlt.dog_prank.presentation.translate.TranslateFragment" />
+
+    <fragment
+        android:id="@+id/gamesFragment"
+        android:name="com.hlt.dog_prank.presentation.games.GamesFragment" />
+
+    <fragment
+        android:id="@+id/songsFragment"
+        android:name="com.hlt.dog_prank.presentation.songs.SongsFragment" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.hlt.dog_prank.presentation.settings.SettingsFragment" />
+
+</navigation>

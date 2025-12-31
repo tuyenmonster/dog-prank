@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.games.ClickerInforFragment">
+
+
+    <ImageView
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/ic_close"
+        android:padding="@dimen/_8sdp"
+        android:id="@+id/btnClose"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_12sdp"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        app:layout_constraintTop_toBottomOf="@+id/btnClose"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_btn_unselect"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:id="@+id/adsNative"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clicker training - Theory"
+        android:id="@+id/txtTitle"
+        android:fontFamily="@font/roboto_semibold"
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/adsNative"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_12sdp"/>
+    <TextView
+        android:layout_width="0dp"
+        android:gravity="start"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        android:id="@+id/txtDes"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="@dimen/_12ssp"
+        android:lineHeight="@dimen/_14ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/_24sdp"
+        android:text="
+Clicker is an essential helper for your training. The concept is rather simple: an animal needs to be rewarded for the desired behavior.
+Below you will find two video lessons on
+how to familiarize your pet with a clicker and teach them the first commands with its help."/>
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        app:layout_constraintTop_toBottomOf="@id/txtDes"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

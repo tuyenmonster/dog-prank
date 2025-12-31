@@ -28,13 +28,45 @@
     </fragment>
     <fragment
         android:id="@+id/playSongFragment"
-        android:name="com.hlt.dog_prank.presentation.songs.PlaySongFragment"
-        android:label="PlaySong">
+        android:name="com.hlt.dog_prank.presentation.songs.PlaySongFragment">
+
         <argument
-            android:name="songIndex"
-            app:argType="integer" />
+            android:name="songUrl"
+            app:argType="string"
+            app:nullable="false" />
+
+        <argument
+            android:name="songTitle"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/inforWhistleFragment"
+        android:name="com.hlt.dog_prank.presentation.games.InforWhistleFragment"
+        android:label="InforWhistle" />
+
+    <fragment
+        android:id="@+id/clickerInforFragment"
+        android:name="com.hlt.dog_prank.presentation.games.ClickerInforFragment"
+        android:label="ClickerInfor">
+
+        <!-- lesson = 1 | 2 -->
+        <argument
+            android:name="lesson"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
 
-
-
+    <fragment
+        android:id="@+id/recordHumanFragment"
+        android:name="com.hlt.dog_prank.presentation.translate.RecordHumanFragment"
+        android:label="RecordHuman">
+        <argument
+            android:name="target_pet"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectLanguageFragment"
+        android:name="com.hlt.dog_prank.presentation.translate.SelectLanguageFragment"
+        android:label="SelectLanguage"/>
 </navigation>

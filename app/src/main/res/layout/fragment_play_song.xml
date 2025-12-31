@@ -5,16 +5,14 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <!-- Header xanh mỏng -->
-    <View
-        android:id="@+id/topBar"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_6sdp"
-        android:background="@color/bottom_nav_selected"
-        app:layout_constraintTop_toTopOf="parent"
+    <ImageView
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/_12sdp"
+        android:id="@+id/btnBack"/>
     <TextView
         android:id="@+id/tvPlaying"
         android:layout_width="wrap_content"
@@ -24,7 +22,7 @@
         android:textSize="@dimen/_12ssp"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- khung xám -->
@@ -71,8 +69,7 @@
         android:id="@+id/icBigMusic"
         android:layout_width="@dimen/_140sdp"
         android:layout_height="@dimen/_140sdp"
-        android:src="@drawable/ic_song1"
-        android:background="@drawable/bg_song"
+        android:background="@drawable/bg_play_song"
         android:padding="@dimen/_40sdp"
         app:layout_constraintTop_toBottomOf="@id/cardPreview"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,9 +102,10 @@
     <!-- Controls -->
     <ImageView
         android:id="@+id/btnPrev"
-        android:layout_width="@dimen/_26sdp"
-        android:layout_height="@dimen/_26sdp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         android:src="@drawable/ic_next"
+        android:rotation="180"
         app:layout_constraintTop_toBottomOf="@id/seekProgress"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/_60sdp"
@@ -117,8 +115,7 @@
         android:id="@+id/btnPlayPause"
         android:layout_width="@dimen/_56sdp"
         android:layout_height="@dimen/_56sdp"
-        android:background="@drawable/ic_play_music"
-        android:padding="@dimen/_14sdp"
+        android:src="@drawable/ic_play_music"
         app:layout_constraintTop_toTopOf="@id/btnPrev"
         app:layout_constraintBottom_toBottomOf="@id/btnPrev"
         app:layout_constraintStart_toEndOf="@id/btnPrev"
@@ -128,8 +125,8 @@
 
     <ImageView
         android:id="@+id/btnNext"
-        android:layout_width="@dimen/_26sdp"
-        android:layout_height="@dimen/_26sdp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
         android:src="@drawable/ic_next"
         app:layout_constraintTop_toTopOf="@id/btnPrev"
         app:layout_constraintBottom_toBottomOf="@id/btnPrev"

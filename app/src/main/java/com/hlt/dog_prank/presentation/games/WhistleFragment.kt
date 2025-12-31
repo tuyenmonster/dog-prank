@@ -2,8 +2,12 @@ package com.hlt.dog_prank.presentation.games
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.hlt.dog_prank.databinding.FragmentWhistleBinding
+import com.hlt.dog_prank.domain.utils.showWhistleInfoDialog
 import com.hlt.dog_prank.presentation.BaseFragment
+import com.hlt.dog_prank.R
+import com.hlt.dog_prank.domain.utils.mainNavController
 
 class WhistleFragment : BaseFragment<FragmentWhistleBinding>() {
 
@@ -15,14 +19,19 @@ class WhistleFragment : BaseFragment<FragmentWhistleBinding>() {
     }
 
     override fun setupViews() {
-        // TODO: setup UI
-        // ví dụ:
-        // binding.btnPlayWhistle.setOnClickListener { ... }
+
+        binding.icInfor.setOnClickListener {
+
+            showWhistleInfoDialog(requireContext()) {
+
+                mainNavController().navigate(
+                    R.id.inforWhistleFragment
+                )
+            }
+        }
     }
 
-    override fun observeData() {
-        // observe ViewModel nếu có
-    }
+    override fun observeData() {}
 
     companion object {
         fun newInstance() = WhistleFragment()

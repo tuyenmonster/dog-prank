@@ -30,7 +30,7 @@
         android:layout_weight="1"
         app:layout_constraintTop_toBottomOf="@id/txtHz"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/icBook"
+        app:layout_constraintEnd_toStartOf="@id/icInfor"
         android:progressDrawable="@drawable/slider_track"
         android:thumb="@drawable/slider_thumb"
         android:progress="255"
@@ -45,7 +45,7 @@
     <ImageView
         android:layout_width="@dimen/_24sdp"
         android:layout_height="@dimen/_24sdp"
-        android:id="@+id/icBook"
+        android:id="@+id/icInfor"
         android:layout_marginEnd="@dimen/_16sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtHz"

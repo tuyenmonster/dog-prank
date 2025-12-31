@@ -7,7 +7,7 @@ import com.hlt.dog_prank.databinding.ItemSongBinding
 import com.hlt.dog_prank.domain.model.SongItem
 
 class SongsAdapter(
-    private val onClick: (position: Int) -> Unit
+    private val onClick: (SongItem) -> Unit
 ) : RecyclerView.Adapter<SongsAdapter.VH>() {
 
     private val items = mutableListOf<SongItem>()
@@ -18,25 +18,27 @@ class SongsAdapter(
         notifyDataSetChanged()
     }
 
-    inner class VH(val binding: ItemSongBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: SongItem, position: Int) {
+    inner class VH(val binding: ItemSongBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: SongItem) {
             binding.tvSongName.text = item.title
-
-            binding.root.setOnClickListener { onClick(position) }
-
-            // Star: UI thôi (nếu muốn lưu favorite thì mình làm tiếp)
-            binding.icStar.setOnClickListener {
-                // TODO: toggle favorite icon (optional)
-            }
+            binding.root.setOnClickListener { onClick(item) }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        return VH(ItemSongBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return VH(
+            ItemSongBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.bind(items[position], position)
+        holder.bind(items[position])
     }
 
     override fun getItemCount(): Int = items.size

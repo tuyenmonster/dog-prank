@@ -108,5 +108,74 @@
     <string name="whiny">Whiny</string>
     <string name="short_yowl">Short Yowl</string>
     <string name="weak_meow">Weak Meow</string>
+    <string name="get_your_dog_attention_with_this_sound">
+        Get your dog’s attention with this sound
+    </string>
 
+    <string name="only_dog_can_here_this_sound_try_it">
+        Only your dog can hear this sound, try it
+    </string>
+
+    <string name="play_this_song_to_see_your_dog_reaction">
+        Play this sound to see your dog’s reaction
+    </string>
+
+    <string name="play_this_sound_to_make_your_dog_relax">
+        Play this sound to make your dog relax
+    </string>
+
+    <string name="play_this_sound_to_puts_your_dog_to_sleep">
+        Play this sound to put your dog to sleep
+    </string>
+
+    <string name="play_this_sound_to_see_if_your_dog_will_help_puppy">
+        Play this sound to see if your dog will help a puppy
+    </string>
+
+    <string name="test_your_dog_with_this_sound">
+        Test your dog with this sound
+    </string>
+
+    <string name="this_sound_will_make_your_dog_come_cuddle_with_you">
+        This sound will make your dog come cuddle with you
+    </string>
+
+    <string name="this_sound_will_make_your_dog_confused">
+        This sound will make your dog confused
+    </string>
+
+    <string name="this_sound_will_make_your_dog_ecxited">
+        This sound will make your dog excited
+    </string>
+
+    <string name="this_sound_will_make_your_dog_go_crazy">
+        This sound will make your dog go crazy
+    </string>
+
+    <string name="this_sound_will_make_your_dog_howl">
+        This sound will make your dog howl
+    </string>
+
+    <string name="this_sound_will_make_your_dog_tilt_their_head">
+        This sound will make your dog tilt their head
+    </string>
+    <string name="clicker_training_theory">Clicker training - Theory</string>
+    <string name="clicker_training_practice">Clicker training - Practice</string>
+
+    <!-- Clicker lesson contents -->
+    <string name="content_lesson_click_1">
+Clicker is an essential helper for your training. The concept is rather simple: an animal needs to be rewarded for the desired behavior.
+
+In this lesson, you will learn how a clicker works, why it is effective, and how to correctly introduce it to your dog.
+
+Always reward your dog immediately after the click so they can clearly associate the sound with positive behavior.
+    </string>
+
+    <string name="content_lesson_click_2">
+In this lesson, you will practice clicker training in real situations.
+
+Use the clicker together with simple commands such as “Sit” or “Come”. Click at the exact moment your dog performs the correct action, then reward them.
+
+Gradually reduce treats over time so your dog responds reliably to the clicker signal alone.
+    </string>
 </resources>

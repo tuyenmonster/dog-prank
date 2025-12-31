@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_dialog">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:fontFamily="@font/roboto_semibold"
+            android:textSize="@dimen/_15ssp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Clicker"/>
+
+        <ImageView
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:src="@drawable/ic_close"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/btnClose"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="@dimen/_11ssp"
+        android:gravity="start"
+        android:lineHeight="@dimen/_14sdp"
+        app:layout_constraintTop_toBottomOf="@id/btnClose"
+        android:layout_marginHorizontal="@dimen/_14sdp"
+        android:textColor="@color/black"
+        android:id="@+id/txtDes"
+        android:text="
+Clicker is an essential helper for your training. The concept is rather simple: an animal needs to be rewarded for the desired behavior.\n
+Below you will find two video lessons on
+how to familiarize your pet with a clicker and teach them the first commands with its help.
+"
+        android:layout_gravity="center"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_12sdp"
+        android:id="@+id/btnInfor"
+        android:paddingHorizontal="@dimen/_12sdp"
+        app:layout_constraintTop_toBottomOf="@id/txtDes">
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imgWhistle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/ic_clicker1"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lession 1"
+            android:textColor="@color/bottom_nav_selected"
+            android:textSize="@dimen/_13ssp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:fontFamily="@font/roboto_semibold"
+            app:layout_constraintStart_toEndOf="@id/imgWhistle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtDes1"
+            android:id="@+id/txtLes"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Clicker training - Theory"
+            app:layout_constraintStart_toEndOf="@id/imgWhistle"
+            android:id="@+id/txtDes1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtLes"
+           />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_12sdp"
+            android:id="@+id/btnInfor1"
+            android:paddingHorizontal="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/btnInfor">
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/imgWhistle1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/ic_clicker2"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lession 2"
+                android:textColor="@color/bottom_nav_selected"
+                android:textSize="@dimen/_13ssp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:fontFamily="@font/roboto_semibold"
+                app:layout_constraintStart_toEndOf="@id/imgWhistle1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/txtDes2"
+                android:id="@+id/txtLes1"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Clicker training - Practice"
+                app:layout_constraintStart_toEndOf="@id/imgWhistle1"
+                android:id="@+id/txtDes2"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtLes1"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

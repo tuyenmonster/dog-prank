@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.hlt.dog_prank.R
 import com.hlt.dog_prank.databinding.FragmentPlaySoundsBinding
+import com.hlt.dog_prank.domain.utils.mainNavController
 import com.hlt.dog_prank.presentation.BaseFragment
 
 
@@ -38,7 +39,7 @@ class PlaySoundsFragment : BaseFragment<FragmentPlaySoundsBinding>() {
         updatePlayIcon()
 
         binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
+            mainNavController().popBackStack()
         }
 
         binding.icPlay.setOnClickListener {

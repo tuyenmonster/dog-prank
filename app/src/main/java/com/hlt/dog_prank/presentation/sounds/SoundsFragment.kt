@@ -10,6 +10,7 @@ import com.hlt.dog_prank.data.local.CatSoundData
 import com.hlt.dog_prank.data.local.DogSoundData
 import com.hlt.dog_prank.databinding.FragmentSoundsBinding
 import com.hlt.dog_prank.domain.model.SoundItem
+import com.hlt.dog_prank.domain.utils.mainNavController
 import com.hlt.dog_prank.presentation.BaseFragment
 
 class SoundsFragment : BaseFragment<FragmentSoundsBinding>() {
@@ -74,7 +75,7 @@ class SoundsFragment : BaseFragment<FragmentSoundsBinding>() {
             putInt("soundRes", item.soundRes)
         }
 
-        findNavController().navigate(
+        mainNavController().navigate(
             R.id.playSoundsFragment,
             bundle
         )

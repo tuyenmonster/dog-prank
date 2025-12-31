@@ -4,17 +4,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.NavHostFragment
 import com.hlt.dog_prank.R
 import com.hlt.dog_prank.databinding.FragmentHomeBinding
 import com.hlt.dog_prank.presentation.BaseFragment
-import com.hlt.dog_prank.presentation.games.GamesFragment
-import com.hlt.dog_prank.presentation.sounds.SoundsFragment
-import com.hlt.dog_prank.presentation.songs.SongsFragment
-import com.hlt.dog_prank.presentation.translate.TranslateFragment
-import com.hlt.dog_prank.presentation.settings.SettingsFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+
+    private val tabNavController by lazy {
+        val navHostFragment =
+            childFragmentManager.findFragmentById(R.id.homeNavHost)
+                    as NavHostFragment
+        navHostFragment.navController
+    }
 
     override fun inflateBinding(
         inflater: LayoutInflater,
@@ -24,59 +27,72 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun setupViews() {
-        // tab mặc định
-        selectTab(Tab.SOUNDS)
+
+        // ❌ KHÔNG navigate mặc định ở đây nữa
 
         binding.tabSounds.setOnClickListener {
-            selectTab(Tab.SOUNDS)
+            navigateSingleTop(R.id.soundsFragment)
         }
 
         binding.tabTranslate.setOnClickListener {
-            selectTab(Tab.TRANSLATE)
+            navigateSingleTop(R.id.translateFragment)
         }
 
         binding.tabGames.setOnClickListener {
-            selectTab(Tab.GAMES)
+            navigateSingleTop(R.id.gamesFragment)
         }
 
         binding.tabSongs.setOnClickListener {
-            selectTab(Tab.SONGS)
+            navigateSingleTop(R.id.songsFragment)
         }
 
         binding.tabSettings.setOnClickListener {
-            selectTab(Tab.SETTINGS)
+            navigateSingleTop(R.id.settingsFragment)
+        }
+
+        observeTabChange()
+    }
+
+    /**
+     * 🔥 Sync TAB UI theo destination hiện tại
+     */
+    private fun observeTabChange() {
+        tabNavController.addOnDestinationChangedListener { _, destination, _ ->
+            resetTabs()
+            when (destination.id) {
+                R.id.soundsFragment ->
+                    setTabSelected(binding.icSounds, binding.txtSounds)
+
+                R.id.translateFragment ->
+                    setTabSelected(binding.icTranslate, binding.txtTranslate)
+
+                R.id.gamesFragment ->
+                    setTabSelected(binding.icGames, binding.txtGames)
+
+                R.id.songsFragment ->
+                    setTabSelected(binding.icSongs, binding.txtSongs)
+
+                R.id.settingsFragment ->
+                    setTabSelected(binding.icSettings, binding.txtSettings)
+            }
         }
     }
 
-    private fun selectTab(tab: Tab) {
-        resetTabs()
+    private fun navigateSingleTop(destinationId: Int) {
+        val currentId = tabNavController.currentDestination?.id
+        if (currentId == destinationId) return
 
-        when (tab) {
-            Tab.SOUNDS -> {
-                setTabSelected(binding.icSounds, binding.txtSounds)
-                openFragment(SoundsFragment.newInstance())
-            }
+        val navOptions = NavOptions.Builder()
+            .setLaunchSingleTop(true)
+            .setRestoreState(true)
+            .setPopUpTo(
+                tabNavController.graph.startDestinationId,
+                inclusive = false,
+                saveState = true
+            )
+            .build()
 
-            Tab.TRANSLATE -> {
-                setTabSelected(binding.icTranslate, binding.txtTranslate)
-                openFragment(TranslateFragment.newInstance())
-            }
-
-            Tab.GAMES -> {
-                setTabSelected(binding.icGames, binding.txtGames)
-                openFragment(GamesFragment.newInstance())
-            }
-
-            Tab.SONGS -> {
-                setTabSelected(binding.icSongs, binding.txtSongs)
-                openFragment(SongsFragment.newInstance())
-            }
-
-            Tab.SETTINGS -> {
-                setTabSelected(binding.icSettings, binding.txtSettings)
-                openFragment(SettingsFragment.newInstance())
-            }
-        }
+        tabNavController.navigate(destinationId, null, navOptions)
     }
 
     private fun resetTabs() {
@@ -98,21 +114,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         (icon as? android.widget.ImageView)?.setColorFilter(color)
         (text as? android.widget.TextView)?.setTextColor(color)
     }
-
-    private fun openFragment(fragment: Fragment) {
-        childFragmentManager.beginTransaction()
-            .replace(binding.homeContainer.id, fragment)
-            .commit()
-    }
-
-    companion object {
-        fun newInstance() = HomeFragment()
-    }
 }
 
-/**
- * Enum quản lý tab
- */
+
 private enum class Tab {
     SOUNDS, TRANSLATE, GAMES, SONGS, SETTINGS
 }
