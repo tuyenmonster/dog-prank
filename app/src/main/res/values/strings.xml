@@ -178,4 +178,46 @@ Use the clicker together with simple commands such as “Sit” or “Come”. C
 
 Gradually reduce treats over time so your dog responds reliably to the clicker signal alone.
     </string>
+    <string name="content_translate_1">I love you so much</string>
+    <string name="content_translate_10">Where is my food?</string>
+    <string name="content_translate_11">I\'m scare T_T</string>
+    <string name="content_translate_12">Do you love me?</string>
+    <string name="content_translate_13">I wag my tail because I\'m happy to see you!</string>
+    <string name="content_translate_14">Can we go for a car ride, please?</string>
+    <string name="content_translate_15">Thanks for the treats! More, please!</string>
+    <string name="content_translate_16">I missed you so much when you were gone.</string>
+    <string name="content_translate_17">Can we play fetch in the park today?</string>
+    <string name="content_translate_18">Belly rubs are the best! Keep going!</string>
+    <string name="content_translate_19">Why did you leave me alone at home?</string>
+    <string name="content_translate_2">You\'re my best friend</string>
+    <string name="content_translate_20">Your scent makes me feel safe and loved.</string>
+    <string name="content_translate_21">I\'ll protect you from anything!</string>
+    <string name="content_translate_22">I love it!</string>
+    <string name="content_translate_23">Please don\'t be mad :(. I didn\'t mean to chew your shoes.</string>
+    <string name="content_translate_24">I\'ll follow you anywhere, you\'re my pack leader!</string>
+    <string name="content_translate_25">I don\'t like the vacuum cleaner. It\'s scary!</string>
+    <string name="content_translate_26">Can we have a picnic in the backyard?</string>
+    <string name="content_translate_27">I promise I\'ll behave during our walk.</string>
+    <string name="content_translate_28">I found a new friend at the dog park today!</string>
+    <string name="content_translate_29">Your smile makes me the happiest dog in the world.</string>
+    <string name="content_translate_3">Pat me pleaseeee</string>
+    <string name="content_translate_30">I\'m not a fan of thunderstorms. Can I sit on your lap?</string>
+    <string name="content_translate_31">Please, let\'s explore new trails this weekend.</string>
+    <string name="content_translate_32">I\'m sorry I barked so much; there was a squirrel!</string>
+    <string name="content_translate_33">Why is the cat allowed on the couch, but I\'m not?</string>
+    <string name="content_translate_34">My favorite thing in the world is when you scratch behind my ears.</string>
+    <string name="content_translate_35">I love our bedtime snuggles.</string>
+    <string name="content_translate_36">I\'ll stand guard at the door to protect our home.</string>
+    <string name="content_translate_37">Let\'s go visit Grandma and Grandpa soon!</string>
+    <string name="content_translate_38">Can I have some of your delicious-looking food?</string>
+    <string name="content_translate_39">I\'ll be your loyal companion forever.</string>
+    <string name="content_translate_4">I\'m so sad</string>
+    <string name="content_translate_40">I\'ll never get tired of chasing my tail!</string>
+    <string name="content_translate_41">Can we have a playdate with my doggie friends?</string>
+    <string name="content_translate_42">I\'m the luckiest dog to have you as my human!</string>
+    <string name="content_translate_5">Please hug me</string>
+    <string name="content_translate_6">I\'m hungry</string>
+    <string name="content_translate_7">I\'m angry now</string>
+    <string name="content_translate_8">I want to go for a walk</string>
+    <string name="content_translate_9">Play with me!!!</string>
 </resources>

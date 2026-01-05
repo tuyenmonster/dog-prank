@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/bg_dialog">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:fontFamily="@font/roboto_semibold"
+            android:textSize="@dimen/_15ssp"
+            android:id="@+id/txtTitle"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Translator result"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_140sdp"
+        android:fontFamily="@font/roboto_regular"
+        android:id="@+id/imgResult"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"
+        android:layout_marginHorizontal="@dimen/_14sdp"
+       />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/imgResult"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/txtResult"
+            android:text="Whe"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="@dimen/_13ssp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_select"
+            app:layout_constraintTop_toBottomOf="@id/txtResult"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/btnComplete"
+            android:text="Complete"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_semibold"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_14ssp"
+            android:layout_margin="@dimen/_12sdp"/>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

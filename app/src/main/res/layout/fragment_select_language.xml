@@ -37,18 +37,62 @@
             android:layout_marginStart="@dimen/_12sdp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- ===== SEARCH ===== -->
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchLanguage"
+    <!-- ===== CUSTOM SEARCH BAR ===== -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutSearch"
         android:layout_width="0dp"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:queryHint="Search language"
-        android:iconifiedByDefault="false"
+        android:background="@drawable/bg_search"
         app:layout_constraintTop_toBottomOf="@id/layoutToolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- SEARCH ICON -->
+        <ImageView
+            android:id="@+id/icSearch"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:src="@drawable/search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- INPUT -->
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@android:color/transparent"
+            android:hint="Search language"
+            android:textSize="@dimen/_13ssp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/bottom_nav_unselected"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            app:layout_constraintStart_toEndOf="@id/icSearch"
+            app:layout_constraintEnd_toStartOf="@id/icClear"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- CLEAR ICON -->
+        <ImageView
+            android:id="@+id/icClear"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:src="@drawable/ic_close"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <!-- ===== CURRENT LANGUAGE ===== -->
     <TextView
@@ -60,7 +104,7 @@
         android:textColor="@color/bottom_nav_unselected"
         android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_16sdp"
-        app:layout_constraintTop_toBottomOf="@id/searchLanguage"
+        app:layout_constraintTop_toBottomOf="@id/layoutSearch"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView

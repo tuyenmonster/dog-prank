@@ -31,6 +31,9 @@ class TranslateFragment : BaseFragment<FragmentTranslateBinding>() {
         binding.cardHumanToDog.setOnClickListener {
             openRecordScreen()
         }
+        binding.cardDogToHuman.setOnClickListener {
+            openRecordDogScreen()
+        }
     }
 
     private fun swapPetContent() {
@@ -60,6 +63,11 @@ class TranslateFragment : BaseFragment<FragmentTranslateBinding>() {
         mainNavController().navigate(
             R.id.recordHumanFragment,
             bundle
+        )
+    }
+    private fun openRecordDogScreen() {
+        mainNavController().navigate(
+            R.id.recordDogFragment
         )
     }
 

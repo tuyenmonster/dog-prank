@@ -2,25 +2,41 @@ package com.hlt.dog_prank.presentation.translate
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import com.hlt.dog_prank.R
 import com.hlt.dog_prank.databinding.FragmentRecordHumanBinding
+import com.hlt.dog_prank.domain.utils.buildPulse
 import com.hlt.dog_prank.domain.utils.mainNavController
 import com.hlt.dog_prank.presentation.BaseFragment
+import java.util.Locale
 
 class RecordHumanFragment : BaseFragment<FragmentRecordHumanBinding>() {
 
-    private var isRecording = false
+    // ===== STATE =====
+    private enum class RecordState { IDLE, RECORDING, RECORDED }
+    private var recordState = RecordState.IDLE
+
     private var seconds = 0
+    private var recognizedText: String? = null
+    private var targetPet: String = "dog"
 
     private val handler = Handler(Looper.getMainLooper())
 
-    // ===== PULSE ANIM =====
+    // ===== SPEECH =====
+    private lateinit var speechRecognizer: SpeechRecognizer
+    private lateinit var speechIntent: Intent
+
+    // ===== PULSE ANIM (GIỮ NGUYÊN) =====
     private var pulseAnim1: AnimatorSet? = null
     private var pulseAnim2: AnimatorSet? = null
 
@@ -40,74 +56,140 @@ class RecordHumanFragment : BaseFragment<FragmentRecordHumanBinding>() {
     }
 
     override fun setupViews() {
+        targetPet = arguments?.getString(ARG_TARGET, "dog") ?: "dog"
+        updateTargetPetUI()
 
-        // init
         binding.txtStop.visibility = View.GONE
         binding.pulse1.alpha = 0f
         binding.pulse2.alpha = 0f
 
-        binding.btnRecord.setOnClickListener {
-            toggleRecord()
-        }
+        initSpeech()
+
+        binding.btnRecord.setOnClickListener { toggleRecord() }
 
         binding.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
 
         binding.btnSelectLanguage.setOnClickListener {
-            mainNavController().navigate(
-                R.id.selectLanguageFragment
-            )
+            mainNavController().navigate(R.id.selectLanguageFragment)
         }
+
         parentFragmentManager.setFragmentResultListener(
             REQ_LANGUAGE,
             viewLifecycleOwner
         ) { _, bundle ->
             binding.txtLanguage.text = bundle.getString(KEY_LANGUAGE)
         }
-
     }
 
-
     // =========================
-    // RECORD STATE
+    // RECORD LOGIC
     // =========================
 
     private fun toggleRecord() {
-        if (!isRecording) {
-            startRecord()
-        } else {
-            stopRecord()
+        when (recordState) {
+            RecordState.IDLE -> startRecord()
+            RecordState.RECORDING -> stopRecord()
+            RecordState.RECORDED -> goToResult()
         }
     }
 
     private fun startRecord() {
-        isRecording = true
+        recordState = RecordState.RECORDING
         seconds = 0
+        recognizedText = null
 
         binding.icMic.visibility = View.GONE
         binding.txtStop.visibility = View.VISIBLE
         binding.txtHint.text = "00:00"
+        binding.txtResultRecord.text = ""
 
         handler.post(timerRunnable)
         startPulse()
+
+        speechRecognizer.startListening(speechIntent)
     }
 
     private fun stopRecord() {
-        isRecording = false
+        recordState = RecordState.RECORDED
 
         handler.removeCallbacks(timerRunnable)
+        stopPulse()
 
         binding.icMic.visibility = View.VISIBLE
         binding.txtStop.visibility = View.GONE
-        binding.txtHint.text = "Tap mic to talk"
+        binding.txtHint.text = "Tap mic to continue"
 
-        stopPulse()
+        speechRecognizer.stopListening()
+    }
+
+    private fun goToResult() {
+        if (recognizedText.isNullOrBlank()) return
+
+        mainNavController().navigate(
+            R.id.resultTranslateFragment,
+            Bundle().apply {
+                putString(ARG_TARGET, targetPet)
+                putString(KEY_RECORD_TEXT, recognizedText)
+            }
+        )
     }
 
     // =========================
-    // PULSE ANIMATION (GIỐNG PlaySongFragment)
+    // SPEECH INIT
     // =========================
+
+    private fun initSpeech() {
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(requireContext())
+        speechRecognizer.setRecognitionListener(object : RecognitionListener {
+
+            override fun onResults(results: Bundle?) {
+                recognizedText = results
+                    ?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                    ?.firstOrNull()
+
+                binding.txtResultRecord.text = recognizedText ?: ""
+            }
+
+            override fun onError(error: Int) {
+                stopRecord()
+            }
+
+            override fun onReadyForSpeech(params: Bundle?) {}
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(rmsdB: Float) {}
+            override fun onBufferReceived(buffer: ByteArray?) {}
+            override fun onEndOfSpeech() {}
+            override fun onPartialResults(partialResults: Bundle?) {}
+            override fun onEvent(eventType: Int, params: Bundle?) {}
+        })
+
+        speechIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+            )
+            putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE,
+                Locale.getDefault().toString()
+            )
+        }
+    }
+
+    // =========================
+    // UI + ANIM (KHÔNG ĐỔI)
+    // =========================
+
+    private fun updateTargetPetUI() {
+        if (targetPet == "cat") {
+            binding.icAnimal.setImageResource(R.drawable.ic_cat)
+            binding.txtAnimal.text = "Cat"
+        } else {
+            binding.icAnimal.setImageResource(R.drawable.ic_dog)
+            binding.txtAnimal.text = "Dog"
+        }
+    }
 
     private fun startPulse() {
         if (pulseAnim1 == null) pulseAnim1 = buildPulse(binding.pulse1, 0L)
@@ -133,42 +215,22 @@ class RecordHumanFragment : BaseFragment<FragmentRecordHumanBinding>() {
         scaleY = 1f
         alpha = 0f
     }
-    companion object {
-        const val ARG_TARGET = "target_pet" // "dog" | "cat"
-        const val REQ_LANGUAGE = "req_language"
-        const val KEY_LANGUAGE = "key_language"
-    }
 
-    private var targetPet: String = "dog"
     override fun onStop() {
         super.onStop()
         handler.removeCallbacks(timerRunnable)
         stopPulse()
+        if (::speechRecognizer.isInitialized) {
+            speechRecognizer.destroy()
+        }
     }
 
     override fun observeData() {}
-}
 
-/**
- * Build pulse animation (COPY Y HỆT PlaySongFragment)
- */
-private fun buildPulse(target: View, startDelay: Long): AnimatorSet {
-    target.scaleX = 1f
-    target.scaleY = 1f
-    target.alpha = 0.35f
-
-    val scaleX = ObjectAnimator.ofFloat(target, View.SCALE_X, 1f, 1.35f)
-    val scaleY = ObjectAnimator.ofFloat(target, View.SCALE_Y, 1f, 1.35f)
-    val alpha = ObjectAnimator.ofFloat(target, View.ALPHA, 0.35f, 0f)
-
-    return AnimatorSet().apply {
-        playTogether(scaleX, scaleY, alpha)
-        duration = 1100L
-        interpolator = AccelerateDecelerateInterpolator()
-        this.startDelay = startDelay
-
-        scaleX.repeatCount = ObjectAnimator.INFINITE
-        scaleY.repeatCount = ObjectAnimator.INFINITE
-        alpha.repeatCount = ObjectAnimator.INFINITE
+    companion object {
+        const val ARG_TARGET = "target_pet"
+        const val REQ_LANGUAGE = "req_language"
+        const val KEY_LANGUAGE = "key_language"
+        const val KEY_RECORD_TEXT = "record_text"
     }
 }

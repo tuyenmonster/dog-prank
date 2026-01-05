@@ -6,18 +6,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hlt.dog_prank.databinding.ItemLanguageBinding
 
 class LanguageAdapter(
-    private val items: List<String>,
     private val onClick: (String) -> Unit
 ) : RecyclerView.Adapter<LanguageAdapter.LanguageVH>() {
 
-    inner class LanguageVH(val binding: ItemLanguageBinding) :
+    private val items = mutableListOf<String>()
+
+    fun submitList(list: List<String>) {
+        items.clear()
+        items.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    inner class LanguageVH(private val binding: ItemLanguageBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(language: String) {
             binding.txtLanguage.text = language
-            binding.root.setOnClickListener {
-                onClick(language)
-            }
+            binding.root.setOnClickListener { onClick(language) }
         }
     }
 
@@ -26,7 +31,6 @@ class LanguageAdapter(
             LayoutInflater.from(parent.context),
             parent,
             false
-
         )
         return LanguageVH(binding)
     }

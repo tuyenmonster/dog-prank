@@ -69,4 +69,13 @@
         android:id="@+id/selectLanguageFragment"
         android:name="com.hlt.dog_prank.presentation.translate.SelectLanguageFragment"
         android:label="SelectLanguage"/>
+    <fragment
+        android:id="@+id/resultTranslateFragment"
+        android:name="com.hlt.dog_prank.presentation.translate.ResultTranslateFragment"
+        android:label="ResultTranslate"/>
+    <fragment
+        android:id="@+id/recordDogFragment"
+        android:name="com.hlt.dog_prank.presentation.translate.RecordDogFragment"
+        android:label="RecordDogFragment"/>
+
 </navigation>

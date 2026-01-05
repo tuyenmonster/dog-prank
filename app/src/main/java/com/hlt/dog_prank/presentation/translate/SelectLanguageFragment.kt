@@ -4,25 +4,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hlt.dog_prank.databinding.FragmentSelectLanguageBinding
 import com.hlt.dog_prank.domain.utils.mainNavController
+import androidx.core.widget.addTextChangedListener
 
 class SelectLanguageFragment : Fragment() {
 
     private var _binding: FragmentSelectLanguageBinding? = null
     private val binding get() = _binding!!
 
-    private val languages = listOf(
+    private val allLanguages = listOf(
         "English",
-        "Vietnamese",
+        "French",
+        "Hindi",
         "Japanese",
+        "Portuguese",
+        "Vietnamese",
         "Korean",
-        "Chinese",
+        "Turkish",
         "Spanish",
-        "French"
+        "Italian",
     )
+
+    private lateinit var adapter: LanguageAdapter
+    private var currentLanguage = "English"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,23 +43,55 @@ class SelectLanguageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupViews()
     }
 
     private fun setupViews() {
 
-        // Back
         binding.btnBack.setOnClickListener {
             mainNavController().popBackStack()
         }
 
-        // RecyclerView
-        binding.rvLanguage.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = LanguageAdapter(languages) { language ->
-                onLanguageSelected(language)
+        binding.txtCurrentLanguage.text = currentLanguage
+        binding.txtCurrentLanguage.setOnClickListener {
+            onLanguageSelected(currentLanguage)
+        }
+
+        adapter = LanguageAdapter { language ->
+            onLanguageSelected(language)
+        }
+
+        binding.rvLanguage.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvLanguage.adapter = adapter
+        adapter.submitList(allLanguages)
+
+        setupSearch()
+    }
+
+    private fun setupSearch() {
+
+        binding.icClear.setOnClickListener {
+            binding.edtSearch.text?.clear()
+        }
+
+        binding.edtSearch.addTextChangedListener { editable ->
+            val query = editable.toString().trim().lowercase()
+            val isSearching = query.isNotEmpty()
+
+            binding.icClear.isVisible = isSearching
+            binding.txtCurrent.isVisible = !isSearching
+            binding.txtCurrentLanguage.isVisible = !isSearching
+            binding.txtAll.isVisible = !isSearching
+
+            val filtered = if (query.isEmpty()) {
+                allLanguages
+            } else {
+                allLanguages.filter {
+                    it.lowercase().contains(query)
+                }
             }
+
+            adapter.submitList(filtered)
         }
     }
 

@@ -88,5 +88,8 @@ dependencies {
     implementation("androidx.media3:media3-exoplayer:1.4.1")
     implementation("androidx.media3:media3-common:1.4.1")
     implementation("androidx.media3:media3-ui:1.4.1")
-
+    // https://mvnrepository.com/artifact/com.github.nisrulz/zentone
+    implementation("com.github.nisrulz:zentone:2.3.0")
+// https://mvnrepository.com/artifact/org.tensorflow/tensorflow-lite
+    implementation("org.tensorflow:tensorflow-lite:+")
 }

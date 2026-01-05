@@ -95,25 +95,40 @@
 
             <ImageView
                 android:layout_width="@dimen/_36sdp"
+                android:id="@+id/icAnimal"
                 android:layout_height="@dimen/_36sdp"
                 android:src="@drawable/ic_dog"/>
 
             <TextView
                 android:text="Dog"
                 android:textSize="@dimen/_10ssp"
+                android:id="@+id/txtAnimal"
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/txtResultRecord"
+        android:layout_marginTop="@dimen/_40sdp"
+        app:layout_constraintTop_toBottomOf="@id/cardTranslator"
+        app:layout_constraintBottom_toTopOf="@id/layoutMic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="@dimen/_13ssp"/>
 
     <!-- ===== MIC BUTTON ===== -->
     <FrameLayout
         android:id="@+id/layoutMic"
         android:layout_width="@dimen/_140sdp"
         android:layout_height="@dimen/_140sdp"
-        app:layout_constraintTop_toBottomOf="@id/cardTranslator"
+        app:layout_constraintTop_toBottomOf="@id/txtResultRecord"
         app:layout_constraintBottom_toTopOf="@id/txtHint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
